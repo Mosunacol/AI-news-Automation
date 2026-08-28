@@ -30,7 +30,7 @@ jobs:
             --retry-delay 30 \
             -H "User-Agent: GitHub-Actions-Daily-AI-News-Optimized" \
             -X GET \
-            "[https://ai-news-automatization.vercel.app/api/index](https://ai-news-automatization.vercel.app/api/index)")
+            "https://ai-news-automatization.vercel.app/api/index")
           
           echo "📊 Full Response:"
           echo "$response"

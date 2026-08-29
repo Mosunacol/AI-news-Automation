@@ -158,7 +158,7 @@ def summarize_with_gemini(articles):
     
     try:
         genai.configure(api_key=gemini_api_key)
-        model = genai.GenerativeModel('gemini-2.5-flash')  # Use Gemini 2.5 Flash for better quality
+        model = genai.GenerativeModel('gemini-3.6-flash')  # Use Gemini 3.6 Flash for better quality
         
         # Process 10-12 articles for better coverage with 6 RSS feeds
         articles_to_process = articles[:12]

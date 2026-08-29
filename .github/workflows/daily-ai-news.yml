@@ -15,7 +15,7 @@ jobs:
       - name: 🚀 Trigger AI News Automation
         id: trigger
         run: |
-          echo "🤖 Starting Daily AI News Automation"
+          echo "🤖 Starting Daily AI News Automation!"
           echo "📅 Scheduled for 11:30 PM IST (6:00 PM UTC)"
           echo "⏰ Execution started at: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           echo ""

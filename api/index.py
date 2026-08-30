@@ -387,7 +387,7 @@ def send_daily_email(articles):
     # Create dynamic subject line with date and article count (changes daily)
     current_date = datetime.utcnow().strftime("%B %d, %Y")
     weekday = datetime.utcnow().strftime("%A")
-    subject = f"AI Technology News - {weekday}, {current_date} ({len(articles)} articles)"
+    subject = f" Noticias Contables - {weekday}, {current_date} ({len(articles)} articles)"
     
     send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
         to=recipients,

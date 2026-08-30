@@ -17,16 +17,11 @@ def fetch_news_articles():
     start_time = time.time()
     
     # Fast and reliable RSS feeds (6 sources for better coverage)
-    RSS_FEEDS = [
-        # Tier 1: Premium tech publications (fastest)
-        "https://www.technologyreview.com/tag/artificial-intelligence/feed/",
-        "https://venturebeat.com/category/ai/feed/",
-        "https://marktechpost.com/feed/",
-        
-        # Tier 2: Reliable and fast sources
-        "https://research.google/blog/rss/",  # Google Research - usually fast
-        "https://techcrunch.com/category/artificial-intelligence/feed/",  # TechCrunch AI
-        "https://www.artificialintelligence-news.com/feed/"  # AI News - dedicated AI site
+ RSS_FEEDS = [
+        "https://www.larepublica.co/rss",
+        "https://www.portafolio.co/rss",
+        "https://www.eltiempo.com/rss/economia.xml",
+        "https://www.valoraanalitik.com/feed/"
     ]
     
     def fetch_single_feed(url):
@@ -109,19 +104,11 @@ def extract_domain(url):
         domain = domain.replace('www.', '').replace('feeds.', '').replace('feed.', '')
         
         # Create more readable source names (updated for 6 feeds)
-        source_mapping = {
-            'technologyreview.com': 'MIT Technology Review',
-            'venturebeat.com': 'VentureBeat',
-            'marktechpost.com': 'MarkTechPost',
-            'research.google': 'Google Research',
-            'techcrunch.com': 'TechCrunch',
-            'artificialintelligence-news.com': 'AI News',
-            # Legacy mappings (in case feeds change)
-            'feedburner.com': 'AI News',
-            'wired.com': 'Wired',
-            'ai-techpark.com': 'AI TechPark',
-            'bair.berkeley.edu': 'Berkeley AI Research',
-            '404media.co': '404 Media'
+     source_mapping = {
+            'larepublica.co': 'La República',
+            'portafolio.co': 'Portafolio',
+            'eltiempo.com': 'El Tiempo Economía',
+            'valoraanalitik.com': 'Valora Analitik'
         }
         
         # Return mapped name if available, otherwise cleaned domain
@@ -169,12 +156,12 @@ def summarize_with_gemini(articles):
         for i, article in enumerate(articles_to_process):
             try:
                 # Balanced prompt for detailed but focused summaries
-                prompt = f"""Summarize this AI/tech article in 3-4 informative sentences. Include key details about what happened, who is involved, the technology or methods mentioned, and the significance or implications. Focus on factual content from the article without adding generic industry commentary.
+                prompt = f"""Actúa como un experto contable y financiero en Colombia. Resume la siguiente noticia en 3 o 4 oraciones informativas. Destaca su impacto en los mercados, los impuestos, las empresas o la contabilidad. Responde estrictamente en español con un tono profesional.
 
-Title: {article['title']}
-Article Content: {article.get('summary', '')[:300]}
+Título: {article['title']}
+Contenido del artículo: {article.get('summary', '')[:300]}
 
-Provide a detailed, factual summary:"""
+Proporciona un resumen detallado y factual en español:"""
                 
                 response = model.generate_content(prompt)
                 

@@ -331,7 +331,7 @@ def create_daily_email(articles):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Technology News - {weekday}, {current_date}</title>
+    <title>Noticias Contables - {weekday}, {current_date}</title>
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: #333333; background-color: #f8f9fa; margin: 0; padding: 20px;">
     
@@ -340,7 +340,7 @@ def create_daily_email(articles):
         <!-- Header -->
         <div style="background-color: #ffffff; padding: 30px 30px 20px 30px; border-bottom: 2px solid #f0f0f0;">
             <h1 style="color: #2c3e50; font-size: 24px; font-weight: 700; margin: 0 0 8px 0; text-align: center;">
-                AI Technology News
+                Noticias Contables
             </h1>
             <p style="color: #7f8c8d; font-size: 16px; margin: 0; text-align: center; font-weight: 500;">
                 {weekday}, {current_date} • {len(articles)} Articles

@@ -21,7 +21,10 @@ def fetch_news_articles():
         "https://www.larepublica.co/rss",
         "https://www.portafolio.co/rss",
         "https://www.eltiempo.com/rss/economia.xml",
-        "https://www.valoraanalitik.com/feed/"
+        "https://www.valoraanalitik.com/feed/",
+        # Nueva fuente: Noticias de la DIAN vía Google News
+        "https://news.google.com/rss/search?q=site:dian.gov.co&hl=es-CO&gl=CO&ceid=CO:es"
+     
     ]
     
     def fetch_single_feed(url):
@@ -108,7 +111,8 @@ def extract_domain(url):
             'larepublica.co': 'La República',
             'portafolio.co': 'Portafolio',
             'eltiempo.com': 'El Tiempo Economía',
-            'valoraanalitik.com': 'Valora Analitik'
+            'valoraanalitik.com': 'Valora Analitik',
+            'news.google.com': 'DIAN (vía Google News)'   
         }
         
         # Return mapped name if available, otherwise cleaned domain
